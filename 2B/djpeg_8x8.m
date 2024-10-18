@@ -27,12 +27,28 @@ Zq=zeros(8,8);
 %
 
 % 1. copy DC back in
+
+Zq(1,1) = dc_coeff;
+
 % 2. order zig-zag access and copy AC back
+
+for i = 1:63
+    [row, col] = find(Qtable == i+1);
+    Zq(row, col) = ac_coeff(i);
+end
 % 3. Q scale factor used in quantisation step
+
+Zq = Zq .* (Q * Qtable);
+
+
 % 4. estimate original Z coefficients using Zq etc
+
+Z = Zq .* Qtable;
+
+
 % 5. inverse dct (assign to variable 'tile')
 
-tile = round(255*rand(8,8))-128; % GENERATE SOME RANDOM RESULTS (REMOVE THIS LINE)
+tile = idct2(Z);
 
 %-----------change code above here --------------------------------
 

@@ -2,7 +2,7 @@
 % simple test code for djpeg_8x8 solutions
 %
 
-Q=80;
+Q=40;
 
 % rand region
 X = uint8(round(255*rand(8,8)));
