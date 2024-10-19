@@ -42,7 +42,7 @@ for i=1:size(IMGS,3)
   
   % generate decoding of only the regions transmitted (for display only. this
   % is not normally generated in practice)
-  change_imagery = simple_dmpeg(H,BLANK,Q); 
+  change_imagery = simple_dmpeg(H,BLANK,Q);
   
   % generate decoding of the reconstructed images
   decoded_imagery = simple_dmpeg(H,decoded_imagery,Q); 
